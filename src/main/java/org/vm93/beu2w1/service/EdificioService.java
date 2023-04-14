@@ -21,9 +21,9 @@ public class EdificioService {
 	
 	@Autowired private EdificioDaoRepo repo;
 
-	@Autowired @Qualifier("PostazioneFake") private ObjectProvider<Edificio> fakeEdificioProvider;
+	@Autowired @Qualifier("EdificioFake") private ObjectProvider<Edificio> fakeEdificioProvider;
 	
-	public void creaPostazioneFake() {
+	public void creaEdificioFake() {
 		Edificio u = fakeEdificioProvider.getObject();
 		salvaPostazione(u);
 	}
@@ -49,6 +49,10 @@ public class EdificioService {
 	
 	public List<Edificio> findAll() {
 		return (List<Edificio>) repo.findAll();	
+	}
+	
+	public Edificio edificioRandom() {
+		return repo.edificioRandom();
 	}
 	
 	

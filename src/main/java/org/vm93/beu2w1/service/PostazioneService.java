@@ -6,6 +6,7 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.vm93.beu2w1.model.Edificio;
 import org.vm93.beu2w1.model.Postazione;
 import org.vm93.beu2w1.model.Utente;
 import org.vm93.beu2w1.repo.PostazioneDaoRepo;
@@ -18,11 +19,14 @@ import lombok.extern.slf4j.Slf4j;
 public class PostazioneService {
 	
 	@Autowired private PostazioneDaoRepo postrepo;
+	@Autowired private EdificioService edificiodao;
 
 	@Autowired @Qualifier("PostazioneFake") private ObjectProvider<Postazione> fakePostazioneProvider;
 	
 	public void creaPostazioneFake() {
 		Postazione u = fakePostazioneProvider.getObject();
+		Edificio e = edificiodao.edificioRandom();
+		u.setEdificio(e);
 		salvaPostazione(u);
 	}
 	

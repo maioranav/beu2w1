@@ -1,6 +1,8 @@
 package org.vm93.beu2w1.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,6 +27,7 @@ public class Postazione {
 	
 	private String description;
 	
+	@Enumerated(EnumType.ORDINAL)
 	private PostazioneType type;
 	
 	private Integer maxp;
