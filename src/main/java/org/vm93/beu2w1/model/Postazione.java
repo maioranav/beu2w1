@@ -27,7 +27,7 @@ public class Postazione {
 	
 	private String description;
 	
-	@Enumerated(EnumType.ORDINAL)
+	@Enumerated(EnumType.STRING)
 	private PostazioneType type;
 	
 	private Integer maxp;

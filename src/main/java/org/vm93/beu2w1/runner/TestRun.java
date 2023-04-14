@@ -17,11 +17,9 @@ public class TestRun implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		/*	utentedao.creaUtenteFake();	
+			/*utentedao.creaUtenteFake();	
 			edificiodao.creaEdificioFake();
 			postazdao.creaPostazioneFake();*/
-		
-		
 	}
 
 }
