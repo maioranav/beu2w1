@@ -32,5 +32,14 @@ public class Prenotazione {
 
 	@Column(nullable = false)
 	private LocalDate data;
+
+	public Prenotazione(Utente utente, Postazione postazione, LocalDate data) {
+		super();
+		this.utente = utente;
+		this.postazione = postazione;
+		this.data = data;
+	}
+	
+	
 	
 }
