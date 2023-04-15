@@ -75,7 +75,15 @@ public class TestRun implements ApplicationRunner {
 			}
 			break;
 		case 2:
-			log.warn("Metodo da implementare!");
+			scan.nextLine();
+			System.out.print("\n\t INSERISCI CITTA PER LA CONSULTAZIONE: ");
+			String citta = scan.nextLine();
+			List<Postazione> listacitta = postazdao.findCity(citta);
+			if (listacitta.size() > 0) {				
+				listacitta.forEach(el -> System.out.println(el));
+			} else {
+				log.warn("Non esistono postazioni per questo posto!!");
+			}
 			break;
 		case 3:
 			log.warn("Metodo da implementare!");

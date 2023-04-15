@@ -53,5 +53,9 @@ public class PostazioneService {
 		return (List<Postazione>) postrepo.findAll();	
 	}
 	
+	public List<Postazione> findCity(String citta) {
+		return (List<Postazione>) postrepo.listByCitta(citta);	
+	}
+	
 	
 }
