@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.vm93.beu2w1.model.Postazione;
+import org.vm93.beu2w1.model.PostazioneType;
 import org.vm93.beu2w1.model.Prenotazione;
 import org.vm93.beu2w1.model.Utente;
 import org.vm93.beu2w1.repo.PostazioneDaoRepo;
@@ -64,6 +65,7 @@ public class TestRun implements ApplicationRunner {
 		System.out.println("\t 2 - CERCA POSTAZIONE PER CITTA");
 		System.out.println("\t 3 - CERCA POSTAZIONE PER TIPOLOGIA");
 		System.out.println("\t 4 - INSERISCI NUOVA PRENOTAZIONE");
+		System.out.println("\t 0 - ESCI DALL'APPLICAZIONE");
 		int scelta = scan.nextInt();
 		switch (scelta) {
 		case 1:
@@ -86,7 +88,25 @@ public class TestRun implements ApplicationRunner {
 			}
 			break;
 		case 3:
-			log.warn("Metodo da implementare!");
+			PostazioneType tipo = null;
+			System.out.println("\n\t INSERISCI LA TIPOLOGIA PER LA CONSULTAZIONE: ");
+			System.out.println("1 - PRIVATO  |  2 - OPENSPACE  |  3 - SALARIUNIONI");
+			int sceltatype = scan.nextInt();
+			scan.nextLine();
+			switch (sceltatype) {
+			case 1:
+				tipo = PostazioneType.Privato;
+			case 2: 
+				tipo = PostazioneType.Openspace;
+			case 3: 
+				tipo = PostazioneType.SalaRiunioni;
+			}
+			List<Postazione> lista = postazdao.findType(tipo);
+			if (lista.size() > 0) {				
+				lista.forEach(el -> System.out.println(el));
+			} else {
+				log.warn("Non esistono postazioni di questo tipo!!");
+			}
 			break;
 		case 4:
 			log.info("Metodo scelto: nuova prenotazione!");

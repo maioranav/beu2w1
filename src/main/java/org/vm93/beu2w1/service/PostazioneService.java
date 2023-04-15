@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.vm93.beu2w1.model.Edificio;
 import org.vm93.beu2w1.model.Postazione;
+import org.vm93.beu2w1.model.PostazioneType;
 import org.vm93.beu2w1.model.Utente;
 import org.vm93.beu2w1.repo.PostazioneDaoRepo;
 import org.vm93.beu2w1.repo.UtenteDaoRepo;
@@ -55,6 +56,10 @@ public class PostazioneService {
 	
 	public List<Postazione> findCity(String citta) {
 		return (List<Postazione>) postrepo.listByCitta(citta);	
+	}
+	
+	public List<Postazione> findType(PostazioneType type) {
+		return (List<Postazione>) postrepo.listByType(type);	
 	}
 	
 	
