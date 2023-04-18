@@ -23,7 +23,7 @@ public class LangController {
 
 	@Autowired
 	InfoService infodao;
-
+	
 	@GetMapping
 	public @ResponseBody String getHomePage() {
 		System.out.println("getHomePage");
