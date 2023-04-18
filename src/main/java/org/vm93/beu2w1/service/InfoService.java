@@ -22,5 +22,9 @@ public class InfoService {
 	public List<Info> findByInitials(String ini) {
 		return (List<Info>) repo.listByInitials(ini);	
 	}
+	
+	public List<Info> findAll() {
+		return (List<Info>) repo.findAll();	
+	}
 
 }

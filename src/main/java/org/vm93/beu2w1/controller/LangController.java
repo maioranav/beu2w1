@@ -42,6 +42,12 @@ public class LangController {
 		}
 	}
 	
+	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<?> getAllInfo() {
+		List<Info> list = infodao.findAll();
+		return new ResponseEntity<>(list, HttpStatus.CREATED);
+	}
+	
 	@PatchMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public ResponseEntity<?> update(@RequestBody Info upInfo) {
