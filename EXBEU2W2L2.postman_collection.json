@@ -71,6 +71,72 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Ottieni utenti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/utente/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"utente",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Lang",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lang\": \"es\",\r\n    \"description\": \"Test patch method\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/info/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info in all langs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/info/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"all"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
