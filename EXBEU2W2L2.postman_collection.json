@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "8966c8f8-dbce-45ba-ac0e-19ce973e1341",
+		"name": "EXBEU2W2L2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25599729"
+	},
+	"item": [
+		{
+			"name": "info/create language",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lang\": \"en\",\r\n    \"description\": \"A user can reserve multiple seats, provided that that seat is free that day and there are no other reservations for the same user on that specific date.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/info/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get info IT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/info/it",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"it"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get info EN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/info/en",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"en"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
