@@ -26,7 +26,7 @@ public class UtenteController {
 	@GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getAll() {
 		try {
-		return new ResponseEntity<>(utentedao.findAll(), HttpStatus.FOUND);
+		return new ResponseEntity<>(utentedao.findAll(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -35,7 +35,7 @@ public class UtenteController {
 	@GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getById(@PathVariable String id) {
 		try {
-		return new ResponseEntity<>(utentedao.findByID(Long.parseLong(id)), HttpStatus.FOUND);
+		return new ResponseEntity<>(utentedao.findByID(Long.parseLong(id)), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
