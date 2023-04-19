@@ -12,5 +12,7 @@ public interface EdificioDaoRepo extends CrudRepository<Edificio, Long> {
 	
 	@Query(value = "SELECT e FROM Edificio e ORDER BY RANDOM() LIMIT 1")
 	public Edificio edificioRandom();
+	
+	public boolean existsByIndirizzo(String indirizzo);
 
 }
