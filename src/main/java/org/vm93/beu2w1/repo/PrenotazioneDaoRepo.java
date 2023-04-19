@@ -21,4 +21,6 @@ public interface PrenotazioneDaoRepo extends CrudRepository<Prenotazione, Long> 
 	@Query(value = "SELECT pr FROM Prenotazione pr INNER JOIN pr.postazione po WHERE po = :post AND pr.data = :data")
 	public List<Prenotazione> listByPostAndDate(Postazione post, LocalDate data);
 	
+	public List<Prenotazione> findByPostazione(Postazione postazione);
+	
 }
