@@ -7,136 +7,606 @@
 	},
 	"item": [
 		{
-			"name": "info/create language",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"lang\": \"en\",\r\n    \"description\": \"A user can reserve multiple seats, provided that that seat is free that day and there are no other reservations for the same user on that specific date.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Utente",
+			"item": [
+				{
+					"name": "Crea Utente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"l.gatti\",\r\n    \"fullname\": \"Lucia Gatti\",\r\n    \"email\": \"lucia.gatti@esempio.it\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/utente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"utente"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/info/create",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"info",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get info IT",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/info/it",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"info",
-						"it"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get info EN",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/info/en",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"info",
-						"en"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Ottieni utenti",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/utente/all",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"utente",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Patch Lang",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"lang\": \"es\",\r\n    \"description\": \"Test patch method\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Ottieni Utente 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/utente/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"utente",
+								"5"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/info/update",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"info",
-						"update"
-					]
+				{
+					"name": "Modifica Utente 5",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"username\": \"l.gatti\",\r\n    \"fullname\": \"Lucia Gattini\",\r\n    \"email\": \"lucia.gatti@esempio.it\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/utente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"utente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Utente 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/utente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"utente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni utenti",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/utente/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"utente",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Info in all langs",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/info/all",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"info",
-						"all"
-					]
+			"name": "Prenotazioni",
+			"item": [
+				{
+					"name": "Crea Prenotazione",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"utente\": {\r\n            \"id\": 2\r\n        },\r\n        \"postazione\": {\r\n            \"id\": 2\r\n        },\r\n        \"data\": \"2023-04-20\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/prenota",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prenota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni Prenotazione 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/prenota/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prenota",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modifica Prenotaz 3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 3,\r\n        \"utente\": {\r\n            \"id\": 3\r\n        },\r\n        \"postazione\": {\r\n            \"id\": 5\r\n        },\r\n        \"data\": \"2023-04-19\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/prenota",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prenota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Prenotazione 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/prenota/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prenota",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni prenotazioni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/prenota/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prenota",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Postazioni",
+			"item": [
+				{
+					"name": "Crea Postazione",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"PostazioneProva\",\r\n    \"type\": \"SalaRiunioni\",\r\n    \"maxp\": 59,\r\n    \"edificio\": {\r\n        \"id\": 6\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/postazione",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"postazione"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni Postazione 6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/postazione/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"postazione",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modifica Postazione 4",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 4,\r\n        \"description\": \"NuovaPostazione\",\r\n        \"type\": \"SalaRiunioni\",\r\n        \"maxp\": 55,\r\n        \"edificio\": {\r\n            \"id\": 7\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/postazione",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"postazione"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Postazione 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/postazione/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"postazione",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni postazioni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/postazione/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"postazione",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Edificio",
+			"item": [
+				{
+					"name": "Crea Edificio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nome\": \"Pal. Girasole\",\r\n        \"indirizzo\": \"Via San Paolino, 25\",\r\n        \"citta\": \"Milazzo\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/edificio",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"edificio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni Edificio 10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/edificio/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"edificio",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modifica Edificio 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 2,\r\n        \"nome\": \"Pal. La Nave\",\r\n        \"indirizzo\": \"Borgo Ferri 837, Appartamento 59\",\r\n        \"citta\": \"Quarto Cleopatra\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/edificio",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"edificio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Edificio 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/edificio/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"edificio",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ottieni edifici",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/edificio/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"edificio",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Info Lang",
+			"item": [
+				{
+					"name": "create info lang",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lang\": \"en\",\r\n    \"description\": \"A user can reserve multiple seats, provided that that seat is free that day and there are no other reservations for the same user on that specific date.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/info/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Lang",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lang\": \"es\",\r\n    \"description\": \"Test patch method\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/info/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info in all langs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/info/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info EN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/info/en",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"en"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info IT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/info/it",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"info",
+								"it"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
