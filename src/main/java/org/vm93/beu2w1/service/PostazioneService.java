@@ -9,10 +9,15 @@ import org.springframework.stereotype.Service;
 import org.vm93.beu2w1.model.Edificio;
 import org.vm93.beu2w1.model.Postazione;
 import org.vm93.beu2w1.model.PostazioneType;
+import org.vm93.beu2w1.model.Prenotazione;
 import org.vm93.beu2w1.model.Utente;
+import org.vm93.beu2w1.repo.EdificioDaoRepo;
 import org.vm93.beu2w1.repo.PostazioneDaoRepo;
+import org.vm93.beu2w1.repo.PrenotazioneDaoRepo;
 import org.vm93.beu2w1.repo.UtenteDaoRepo;
 
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -20,7 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 public class PostazioneService {
 	
 	@Autowired private PostazioneDaoRepo postrepo;
+	@Autowired private EdificioDaoRepo edirepo;
 	@Autowired private EdificioService edificiodao;
+	@Autowired private PrenotazioneDaoRepo prenotarepo;
 
 	@Autowired @Qualifier("PostazioneFake") private ObjectProvider<Postazione> fakePostazioneProvider;
 	
@@ -31,22 +38,48 @@ public class PostazioneService {
 		salvaPostazione(u);
 	}
 	
-	public void salvaPostazione(Postazione p) {
+	public Postazione salvaPostazione(Postazione p) {
+		if (!edirepo.existsById(p.getEdificio().getId())) {
+			throw new EntityNotFoundException("Edificio doesnt exists!!");			
+		}
+		Edificio edificio = edirepo.findById(p.getEdificio().getId()).get();
+		p.setEdificio(edificio);
 		postrepo.save(p);
-		log.info("Postazione " + p.getDescription() + " aggiunta al DB!!!");
+		log.info("Postazione aggiunta al DB!!!");
+		return p;
 	}
 	
-	public void rimuoviUtente(Long id) {
+	public String rimuoviUtente(Long id) {
+		if(!postrepo.existsById(id)) {
+			throw new EntityExistsException("ID not found!!");
+		}
+		List<Prenotazione> list = prenotarepo.findByPostazione(postrepo.findById(id).get());
+		if(list.size() > 0) {
+			list.forEach(el -> prenotarepo.delete(el));
+		}
 		postrepo.delete(findByID(id));
 		log.info("Postazione rimosso dal DB!!!");
+		return "Postazione removed!";
 	}
 	
-	public void aggiornaPostazione(Postazione p) {
+	public Postazione aggiornaPostazione(Postazione p) {
+		if (!postrepo.existsById(p.getId())) {
+			throw new EntityNotFoundException("PostID doesnt exists!!");
+		}
+		if (!edirepo.existsById(p.getEdificio().getId())) {
+			throw new EntityNotFoundException("Edificio doesnt exists!!");			
+		}
+		Edificio edificio = edirepo.findById(p.getEdificio().getId()).get();
+		p.setEdificio(edificio);
 		postrepo.save(p);
 		log.info("Postazione " + p.getDescription() + " aggiornato sul DB!!!");
+		return p;
 	}
 
 	public Postazione findByID(Long id) {
+		if(!postrepo.existsById(id)) {
+			throw new EntityNotFoundException("ID not found!");
+		}
 		return postrepo.findById(id).get();	
 	}
 	
