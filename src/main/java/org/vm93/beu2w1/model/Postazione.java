@@ -33,7 +33,7 @@ public class Postazione {
 	private Integer maxp;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name = "edificio_id", nullable = false)
 	private Edificio edificio;
 
 	public Postazione(String description, PostazioneType type, Integer maxp, Edificio edificio) {
