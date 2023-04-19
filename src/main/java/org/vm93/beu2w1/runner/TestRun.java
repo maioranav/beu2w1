@@ -39,11 +39,14 @@ public class TestRun implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		/*
-		 * utentedao.creaUtenteFake(); edificiodao.creaEdificioFake();
-		 * postazdao.creaPostazioneFake();
-		 */
+		
+	/*  utentedao.creaUtenteFake();
+		  edificiodao.creaEdificioFake();
+		  postazdao.creaPostazioneFake(); */
+
 		log.info("*** APP STARTED ***");
+		
+	 /*
 		System.out.println("\n\tBenvenuto nel sistema GestionePrenotazioni!");
 		System.out.print("\tScegli il tuo id Utente:");
 		Long uid = scan.nextLong();
@@ -56,7 +59,7 @@ public class TestRun implements ApplicationRunner {
 		while (true) {
 			menuPrincipale();
 		}
-
+*/
 	}
 
 	public void menuPrincipale() {
