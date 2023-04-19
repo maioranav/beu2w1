@@ -7,4 +7,10 @@ import org.vm93.beu2w1.model.Utente;
 @Repository
 public interface UtenteDaoRepo extends CrudRepository<Utente, Long> {
 
+	public Utente findByEmail(String email);
+	
+	public boolean existsByEmail(String email);
+	public boolean existsByUsername(String username);
+	
+	
 }
