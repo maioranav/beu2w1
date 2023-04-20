@@ -1,6 +1,7 @@
 package org.vm93.beu2w1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,8 +23,8 @@ public class UtenteController {
 	UtenteService utenteService;
 	
 	@GetMapping(path = "/all")
-	public ResponseEntity<?> getAllUsers(){
-		return new ResponseEntity<>(utenteService.findAll(), HttpStatus.OK);
+	public ResponseEntity<?> getAllUsers(Pageable pageable){
+		return new ResponseEntity<>(utenteService.findAll(pageable), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{id}")

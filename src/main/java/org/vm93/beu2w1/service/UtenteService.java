@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.vm93.beu2w1.model.Prenotazione;
 import org.vm93.beu2w1.model.Utente;
@@ -70,6 +72,10 @@ public class UtenteService {
 	
 	public List<Utente> findAll() {
 		return (List<Utente>) repo.findAll();	
+	}
+	
+	public Page<Utente> findAll(Pageable pageable) {
+		return (Page<Utente>) repo.findAll(pageable);	
 	}
 	
 	
