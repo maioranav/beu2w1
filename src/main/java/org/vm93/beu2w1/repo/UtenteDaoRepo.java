@@ -14,6 +14,7 @@ public interface UtenteDaoRepo extends PagingAndSortingRepository<Utente, Long>,
 	
 	public boolean existsByEmail(String email);
 	public boolean existsByUsername(String username);
+	public Utente findByUsername(String username);
     Optional<Utente> findByUsernameOrEmail(String username, String email);
 
 	

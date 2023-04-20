@@ -70,6 +70,20 @@ public class UtenteService {
 		return repo.findById(id).get();	
 	}
 	
+	public Utente findByUsername(String username) {
+		if(!repo.existsByUsername(username)) {
+			throw new EntityNotFoundException("User.ID not found!");
+		}
+		return repo.findByUsername(username);	
+	}
+	
+	public Utente findByEmail(String email) {
+		if(!repo.existsByEmail(email)) {
+			throw new EntityNotFoundException("User.Email not found!");
+		}
+		return repo.findByEmail(email);	
+	}
+	
 	public List<Utente> findAll() {
 		return (List<Utente>) repo.findAll();	
 	}
