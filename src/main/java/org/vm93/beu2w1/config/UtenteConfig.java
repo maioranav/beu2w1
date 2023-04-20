@@ -14,8 +14,8 @@ public class UtenteConfig {
 	
 	@Bean("Utente")
 	@Scope("prototype")
-	public Utente paramsUser(String fullname, String email, String username) {
-		return new Utente(fullname, email, username);
+	public Utente paramsUser(String fullname, String email, String username, String password) {
+		return new Utente(fullname, email, username, password);
 	}
 	
 	@Bean("UtenteFake")
@@ -28,6 +28,7 @@ public class UtenteConfig {
 		u.setFullname(nome + " " + cognome);
 		u.setUsername(nome.toLowerCase().charAt(0) + "." + cognome.toLowerCase());
 		u.setEmail(nome.toLowerCase() + "." + cognome.toLowerCase() + "@esempio.it");
+		u.setPassword(fake.internet().password(8, 9, true, true));
 		return u;
 	}
 
