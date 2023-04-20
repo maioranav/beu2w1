@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.vm93.beu2w1.model.Edificio;
 import org.vm93.beu2w1.model.Postazione;
@@ -71,6 +73,10 @@ public class EdificioService {
 	
 	public List<Edificio> findAll() {
 		return (List<Edificio>) repo.findAll();	
+	}
+	
+	public Page<Edificio> findAll(Pageable pageable) {
+		return (Page<Edificio>) repo.findAll(pageable);	
 	}
 	
 	public Edificio edificioRandom() {

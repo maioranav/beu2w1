@@ -1,6 +1,7 @@
 package org.vm93.beu2w1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,8 +23,8 @@ public class EdificioController {
 	EdificioService edificioService;
 	
 	@GetMapping(path = "/all")
-	public ResponseEntity<?> getAllEdificio(){
-		return new ResponseEntity<>(edificioService.findAll(), HttpStatus.OK);
+	public ResponseEntity<?> getAllEdificio(Pageable pageable){
+		return new ResponseEntity<>(edificioService.findAll(pageable), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{id}")
