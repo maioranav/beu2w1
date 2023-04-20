@@ -111,7 +111,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/utente/all",
+							"raw": "localhost:8080/api/utente/all?page=1&size=2",
 							"host": [
 								"localhost"
 							],
@@ -120,6 +120,16 @@
 								"api",
 								"utente",
 								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -353,7 +363,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/postazione/all",
+							"raw": "localhost:8080/api/postazione/all?page=1&size=2&sort=description",
 							"host": [
 								"localhost"
 							],
@@ -362,6 +372,20 @@
 								"api",
 								"postazione",
 								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								},
+								{
+									"key": "sort",
+									"value": "description"
+								}
 							]
 						}
 					},
@@ -474,7 +498,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/edificio/all",
+							"raw": "localhost:8080/api/edificio/all?page=1&size=3",
 							"host": [
 								"localhost"
 							],
@@ -483,6 +507,16 @@
 								"api",
 								"edificio",
 								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
 							]
 						}
 					},
