@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.vm93.beu2w1.model.Prenotazione;
 import org.vm93.beu2w1.model.Utente;
@@ -26,6 +27,8 @@ public class UtenteService {
 
 	@Autowired @Qualifier("UtenteFake") private ObjectProvider<Utente> fakeUserProvider;
 	
+	@Autowired @Qualifier("passwordEncoder") PasswordEncoder passwordEncoder;
+	
 	public void creaUtenteFake() {
 		Utente u = fakeUserProvider.getObject();
 		salvaUtente(u);
@@ -33,6 +36,8 @@ public class UtenteService {
 	
 	public Utente salvaUtente(Utente u) {
 		if (!repo.existsByEmail(u.getEmail()) || !repo.existsByUsername(u.getUsername())) {
+			String cleanpass = u.getPassword();
+			u.setPassword(passwordEncoder.encode(cleanpass));
 			repo.save(u);
 			log.info("Utente " + u.getEmail() + " aggiunto al DB!!!");
 			return u;
