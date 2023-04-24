@@ -26,6 +26,7 @@ public class EdificioConfig {
 		e.setCitta(fake.address().city());
 		e.setIndirizzo(fake.address().streetAddress());
 		e.setNome(fake.backToTheFuture().character());
+		e.setAccesscode(fake.internet().password(8, 8, true, true));
 		return e;
 	}
 
